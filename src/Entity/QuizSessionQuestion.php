@@ -62,6 +62,54 @@ class QuizSessionQuestion implements AuthoredEntityInterface, PublishedDateEntit
     private $content;
 
     /**
+     * @ORM\Column(type="string")
+     * @Groups({"post", "get-question-with-author"})
+     * @Assert\NotBlank()
+     * @Assert\Length(min=5, max=3000)
+     */
+    private $optionA;
+
+    /**
+     * @ORM\Column(type="string")
+     * @Groups({"post", "get-question-with-author"})
+     * @Assert\NotBlank()
+     * @Assert\Length(min=5, max=3000)
+     */
+    private $optionB;
+
+    /**
+     * @ORM\Column(type="string")
+     * @Groups({"post", "get-question-with-author"})
+     * @Assert\NotBlank()
+     * @Assert\Length(min=5, max=3000)
+     */
+    private $optionC;
+
+    /**
+     * @ORM\Column(type="string")
+     * @Groups({"post", "get-question-with-author"})
+     * @Assert\NotBlank()
+     * @Assert\Length(min=5, max=3000)
+     */
+    private $optionD;
+
+
+    /**
+     * @ORM\Column(type="string")
+     * @Groups({"post", "get-question-with-author"})
+     * @Assert\NotBlank()
+     * @Assert\Length(min=5, max=3000)
+     */
+    private $correctAns;
+
+    /**
+     * @ORM\Column(type="integer")
+     * @Groups({"post", "get-question-with-author"})
+     * @Assert\NotBlank()
+     */
+    private $score;
+
+    /**
      * @ORM\Column(type="datetime")
      * @Groups({"get-question-with-author"})
      */
@@ -99,6 +147,104 @@ class QuizSessionQuestion implements AuthoredEntityInterface, PublishedDateEntit
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getOptionA()
+    {
+        return $this->optionA;
+    }
+
+    /**
+     * @param mixed $optionA
+     */
+    public function setOptionA($optionA): void
+    {
+        $this->optionA = $optionA;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOptionB()
+    {
+        return $this->optionB;
+    }
+
+    /**
+     * @param mixed $optionB
+     */
+    public function setOptionB($optionB): void
+    {
+        $this->optionB = $optionB;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOptionC()
+    {
+        return $this->optionC;
+    }
+
+    /**
+     * @param mixed $optionC
+     */
+    public function setOptionC($optionC): void
+    {
+        $this->optionC = $optionC;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOptionD()
+    {
+        return $this->optionD;
+    }
+
+    /**
+     * @param mixed $optionD
+     */
+    public function setOptionD($optionD): void
+    {
+        $this->optionD = $optionD;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCorrectAns()
+    {
+        return $this->correctAns;
+    }
+
+    /**
+     * @param mixed $correctAns
+     */
+    public function setCorrectAns($correctAns): void
+    {
+        $this->correctAns = $correctAns;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getScore()
+    {
+        return $this->score;
+    }
+
+    /**
+     * @param mixed $score
+     */
+    public function setScore($score): void
+    {
+        $this->score = $score;
+    }
+
+
 
     public function getPublished(): ?\DateTimeInterface
     {
